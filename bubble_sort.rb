@@ -1,23 +1,22 @@
-def bubble_sort(list)
-  def sort(list)
+def bubble_sort(unsorted_list)
+  sort = lambda { |list|
     sorted = true
     for index in 1..list.size - 1
       first = list[index - 1]
       second = list[index]
-      if first > second
-        sorted = false
-        list[index - 1] = second
-        list[index] = first
-      end
+      next unless first > second
+
+      sorted = false
+      list[index - 1] = second
+      list[index] = first
     end
-    return sorted
-  end
 
-  until sort(list) == true
-    sort(list)
-  end
+    sorted
+  }
 
-  return list
+  sort.call(unsorted_list) until sort.call(unsorted_list) == true
+
+  unsorted_list
 end
 
-raise "Failed" unless bubble_sort([4, 3, 78, 2, 0, 2]) == [0, 2, 2, 3, 4, 78]
+raise "Not Sorted" unless bubble_sort([4, 3, 78, 2, 0, 2]) == [0, 2, 2, 3, 4, 78]
