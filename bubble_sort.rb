@@ -3,7 +3,7 @@ def bubble_sort(list_to_sort)
     # By default, the list is sorted
     sorted = true
 
-    # We start looping the list from the first item (list starts at zero)
+    # We start looping the list from the first item `list[1]`
     # Ex: `9, [8], 7` we start at 8 in this case
     for index in 1..list.size - 1 # `list.size - 1` we skip the last item in order to make the code less complicated
       # Ex: `9, [8], 7`
