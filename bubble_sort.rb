@@ -27,14 +27,13 @@ def bubble_sort()
   }
 
   # Evaluate the `sort` function in an loop, until it returns true (as in sorted)
-  sort.call() until sort.call() == true
+  sort.call until sort.call == true
 
   # Return the sorted list
   puts list_to_sort
 end
 
 def bubble_sort_by(array)
-
   iterations = array.length - 1
 
   iterations.times do
@@ -45,6 +44,6 @@ def bubble_sort_by(array)
   puts array.reverse!
 end
 
-bubble_sort_by(["hi", "hello", "hey"]) do |left, right|
+bubble_sort_by(%w[hi hello hey]) do |left, right|
   left.length - right.length
 end
