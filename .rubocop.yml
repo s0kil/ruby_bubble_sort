@@ -47,3 +47,9 @@ Style/HashTransformKeys:
   Enabled: false
 Style/HashTransformValues:
   Enabled: false
+Style/For:
+  Enabled: false
+Style/StringLiterals:
+  Enabled: false
+Lint/UselessAssignment:
+  Enabled: false
