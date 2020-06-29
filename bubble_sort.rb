@@ -1,4 +1,4 @@
-def bubble_sort(list_to_sort)
+def bubble_sort()
   sort = lambda { |list|
     # By default, the list is sorted
     sorted = true
@@ -27,12 +27,29 @@ def bubble_sort(list_to_sort)
   }
 
   # Evaluate the `sort` function in an loop, until it returns true (as in sorted)
-  sort.call(list_to_sort) until sort.call(list_to_sort) == true
+  sort.call() until sort.call() == true
 
   # Return the sorted list
-  list_to_sort
+  puts list_to_sort
 end
 
-raise "Test One Failed" unless bubble_sort([9, 8, 7]) == [7, 8, 9]
-raise "Test Two Failed" unless bubble_sort([4, 3, 78, 2, 0, 2]) == [0, 2, 2, 3, 4, 78]
-raise "Test Three Failed" unless bubble_sort([0, 9, 1, 7683, -2]) == [-2, 0, 1, 9, 7683]
+
+
+
+def bubble_sort_by(array)
+  
+  iterations = array.length - 1
+
+  iterations.times do 
+   array.each_with_index do |v, i|
+    array[i], array[i + 1] = array[i +1], array[i] if yield(array[i].to_s, array[i+1].to_s) < 0 
+
+   end
+  end
+ puts array.reverse!
+end
+
+
+bubble_sort_by(["hi","hello","hey"]) do |left,right|
+  left.length - right.length
+end
