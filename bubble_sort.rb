@@ -39,12 +39,12 @@ def bubble_sort_by(array)
 
   iterations.times do
     array.each_with_index do |_v, i|
-      array[i], array[i + 1] = array[i +1], array[i] if yield(array[i].to_s, array[i+1].to_s) < 0 
+      array[i], array[i + 1] = array[i + 1], array[i] if yield(array[i].to_s, array[i + 1].to_s).negative?
     end
   end
   puts array.reverse!
 end
 
-bubble_sort_by(["hi","hello","hey"]) do |left,right|
+bubble_sort_by(["hi", "hello", "hey"]) do |left, right|
   left.length - right.length
 end
