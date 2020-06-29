@@ -33,22 +33,17 @@ def bubble_sort()
   puts list_to_sort
 end
 
-
-
-
 def bubble_sort_by(array)
-  
+
   iterations = array.length - 1
 
-  iterations.times do 
-   array.each_with_index do |v, i|
-    array[i], array[i + 1] = array[i +1], array[i] if yield(array[i].to_s, array[i+1].to_s) < 0 
-
-   end
+  iterations.times do
+    array.each_with_index do |_v, i|
+      array[i], array[i + 1] = array[i +1], array[i] if yield(array[i].to_s, array[i+1].to_s) < 0 
+    end
   end
- puts array.reverse!
+  puts array.reverse!
 end
-
 
 bubble_sort_by(["hi","hello","hey"]) do |left,right|
   left.length - right.length
